@@ -1,0 +1,312 @@
+ :root {
+      --cursorColor: rgba(255, 255, 255, 0.1);
+      --cursorColorAlt: rgba(255, 255, 255, 0.4);
+      --dotColor: white;
+      --base: rgba(255, 255, 255, 0.2);
+      --SkillGradient: linear-gradient(to right, #00f260, #0575e6);
+      /* Example gradient */
+    }
+
+
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background-color: black;
+
+
+    }
+
+    .font-pacifico {
+      font-family: "Pacifico", cursive;
+    }
+
+    .glow-circle {
+      box-shadow: 0 0 12px 3px #fff;
+      border-radius: 9999px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    nav a.about-hover:hover {
+      box-shadow: 0 0 12px 3px #fff;
+      border-radius: 9999px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .portfoio {
+      background-position-x: -27.2386%;
+      background-position-y: 50%;
+    }
+
+    .main {
+      height: 500px;
+
+
+    }
+
+    .Cursor-Main #cursor {
+      position: fixed;
+      inset: 0;
+      opacity: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 100px;
+      background-color: var(--cursorColor);
+      box-shadow: 0 0 15px 0 var(--cursorColorAlt);
+      transition: all .1s ease-in-out;
+      pointer-events: none;
+      will-change: transform;
+      backface-visibility: hidden;
+    }
+
+    .Cursor-Main #cursor::before {
+      content: "";
+      width: 0;
+      aspect-ratio: 1;
+      inset: 0;
+      margin: auto;
+      border-radius: 50%;
+      position: absolute;
+      transition: all .1s ease-in-out;
+      background-color: var(--base);
+    }
+
+    .Cursor-Main #cursorView {
+      visibility: hidden;
+      width: 100%;
+      height: 100%;
+      font-size: 0;
+      letter-spacing: 1px;
+      background: var(--SkillGradient);
+      border-radius: 50%;
+    }
+
+    .Cursor-Main #cursorDot {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      border-radius: 100px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 10ms ease-out;
+      background-color: var(--dotColor);
+      backface-visibility: hidden;
+    }
+
+    body:hover #cursor,
+    body:hover #cursorDot {
+      opacity: 1;
+
+
+
+    }
+
+
+
+    :has(a:hover, button:hover) #cursor {
+      width: 4em;
+      height: 4em;
+      background: 0 0;
+      outline: 2px solid var(--cursorColor)
+    }
+
+    :has(a:hover, button:hover) #cursor span {
+      width: 100% !important
+    }
+
+    :has(a:hover, button:hover) #cursor::before {
+      content: "";
+
+      width: calc(100% - 10%);
+      aspect-ratio: 1;
+      inset: 0;
+      margin: auto;
+      border-radius: 50%;
+      position: absolute;
+      background-color: transparent;
+      ;
+    }
+
+    :has(.Projects_Link:hover) #cursor {
+      width: 3em;
+      height: 3em
+    }
+
+    :has(#emailCopyBtn:hover) #cursor,
+    :has(#passCopyBtn:hover) #cursor {
+      width: 3em;
+      height: 3em
+    }
+
+    :has(.Projects_Link.Misc-Link:hover) #cursor {
+
+      width: 5em;
+      height: 5em
+    }
+
+    :has(.Projects_Link:hover) #cursorView {
+      visibility: hidden !important
+    }
+
+    :has(.Projects_Link:hover) #cursorDot {
+      visibility: visible !important
+    }
+
+    :has(.Projects-MiscInfo:hover) #cursor,
+    :has(.Projects_Preview:hover) #cursor {
+      width: 5em;
+      height: 5em;
+      background: 0 0;
+      outline: 2px solid var(--cursorColor)
+    }
+
+    :has(.Projects-MiscInfo:hover) #cursorView,
+    :has(.Projects_Preview:hover) #cursorView {
+      visibility: visible !important;
+      font-size: 1.2em;
+      padding-bottom: 1.15em
+    }
+
+    :has(.Projects-MiscInfo:hover) #cursorDot,
+    :has(.Projects_Preview:hover) #cursorDot {
+      visibility: hidden !important
+    }
+
+
+
+
+    .line {
+      width: 100%;
+      height: 1px;
+      background-color: rgb(126, 34, 206);
+    }
+
+    .about {
+
+      width: 1150px;
+      height: 500px;
+      justify-self: center;
+
+
+    }
+
+    .techstack {
+      width: 1150px;
+      height: 330px;
+      justify-self: center;
+      margin-top: 200px;
+    }
+
+    .line2 {
+      background-color: rgb(126, 34, 206);
+      width: 445px;
+      height: 2;
+    }
+
+    .card {
+      height: 300px;
+    }
+
+    .frontend {
+      width: 95px;
+      height: 95px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+    }
+
+    .heigth {
+      height: 35px;
+    }
+
+    .Tool {
+      height: 300px;
+    }
+
+    .contact {
+      width: 1150px;
+      height: 500px;
+      justify-self: center;
+    }
+
+    .contact1 {
+      display: flex;
+    }
+
+    .diagram {
+      width: 500px;
+    }
+
+    .form {
+      height: 400px;
+      width: 500px;
+    }
+
+.ani{
+  animation: fadeIn 2s ease-in-out;
+  
+}
+    
+.typing::after {
+      content: "|";
+      animation: blink 1s infinite;
+      margin-left: 5px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+
+ #starfield {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background: #000000;
+      display: block;
+    }
+
+.homeimg{
+  width: 500px;
+
+}
+
+
+ #toast {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      min-width: 250px;
+      max-width: 350px;
+      background-color: rgb(12, 21, 31); /* Tailwind green-400 */
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(89, 25, 119, 0.5), 0 4px 6px -2px rgba(72, 16, 87, 0.3);
+      display: none;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 600;
+      z-index: 9999;
+    }
+    #toast.show {
+      display: flex;
+      animation: slideIn 0.3s ease forwards;
+    }
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
