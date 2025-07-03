@@ -1,0 +1,1035 @@
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Yash Portfolio</title>
+  <link href="dist/output.css" rel="stylesheet" />
+  <!-- Tailwind CSS output file -->
+  <link href="dist/output.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap"
+    rel="stylesheet" />
+    <!-- Add these in the <head> or before </body> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.space.min.js"></script>
+
+  <style>
+    :root {
+      --cursorColor: rgba(255, 255, 255, 0.1);
+      --cursorColorAlt: rgba(255, 255, 255, 0.4);
+      --dotColor: white;
+      --base: rgba(255, 255, 255, 0.2);
+      --SkillGradient: linear-gradient(to right, #00f260, #0575e6);
+      /* Example gradient */
+    }
+
+
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background-color: black;
+
+
+    }
+
+    .font-pacifico {
+      font-family: "Pacifico", cursive;
+    }
+
+    .glow-circle {
+      box-shadow: 0 0 12px 3px #fff;
+      border-radius: 9999px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    nav a.about-hover:hover {
+      box-shadow: 0 0 12px 3px #fff;
+      border-radius: 9999px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .portfoio {
+      background-position-x: -27.2386%;
+      background-position-y: 50%;
+    }
+
+    .main {
+      height: 500px;
+
+
+    }
+
+    .Cursor-Main #cursor {
+      position: fixed;
+      inset: 0;
+      opacity: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 100px;
+      background-color: var(--cursorColor);
+      box-shadow: 0 0 15px 0 var(--cursorColorAlt);
+      transition: all .1s ease-in-out;
+      pointer-events: none;
+      will-change: transform;
+      backface-visibility: hidden;
+    }
+
+    .Cursor-Main #cursor::before {
+      content: "";
+      width: 0;
+      aspect-ratio: 1;
+      inset: 0;
+      margin: auto;
+      border-radius: 50%;
+      position: absolute;
+      transition: all .1s ease-in-out;
+      background-color: var(--base);
+    }
+
+    .Cursor-Main #cursorView {
+      visibility: hidden;
+      width: 100%;
+      height: 100%;
+      font-size: 0;
+      letter-spacing: 1px;
+      background: var(--SkillGradient);
+      border-radius: 50%;
+    }
+
+    .Cursor-Main #cursorDot {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      border-radius: 100px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 10ms ease-out;
+      background-color: var(--dotColor);
+      backface-visibility: hidden;
+    }
+
+    body:hover #cursor,
+    body:hover #cursorDot {
+      opacity: 1;
+
+
+
+    }
+
+
+
+    :has(a:hover, button:hover) #cursor {
+      width: 4em;
+      height: 4em;
+      background: 0 0;
+      outline: 2px solid var(--cursorColor)
+    }
+
+    :has(a:hover, button:hover) #cursor span {
+      width: 100% !important
+    }
+
+    :has(a:hover, button:hover) #cursor::before {
+      content: "";
+
+      width: calc(100% - 10%);
+      aspect-ratio: 1;
+      inset: 0;
+      margin: auto;
+      border-radius: 50%;
+      position: absolute;
+      background-color: transparent;
+      ;
+    }
+
+    :has(.Projects_Link:hover) #cursor {
+      width: 3em;
+      height: 3em
+    }
+
+    :has(#emailCopyBtn:hover) #cursor,
+    :has(#passCopyBtn:hover) #cursor {
+      width: 3em;
+      height: 3em
+    }
+
+    :has(.Projects_Link.Misc-Link:hover) #cursor {
+
+      width: 5em;
+      height: 5em
+    }
+
+    :has(.Projects_Link:hover) #cursorView {
+      visibility: hidden !important
+    }
+
+    :has(.Projects_Link:hover) #cursorDot {
+      visibility: visible !important
+    }
+
+    :has(.Projects-MiscInfo:hover) #cursor,
+    :has(.Projects_Preview:hover) #cursor {
+      width: 5em;
+      height: 5em;
+      background: 0 0;
+      outline: 2px solid var(--cursorColor)
+    }
+
+    :has(.Projects-MiscInfo:hover) #cursorView,
+    :has(.Projects_Preview:hover) #cursorView {
+      visibility: visible !important;
+      font-size: 1.2em;
+      padding-bottom: 1.15em
+    }
+
+    :has(.Projects-MiscInfo:hover) #cursorDot,
+    :has(.Projects_Preview:hover) #cursorDot {
+      visibility: hidden !important
+    }
+
+
+
+
+    .line {
+      width: 100%;
+      height: 1px;
+      background-color: rgb(126, 34, 206);
+    }
+
+    .about {
+
+      width: 1150px;
+      height: 500px;
+      justify-self: center;
+
+
+    }
+
+    .techstack {
+      width: 1150px;
+      height: 330px;
+      justify-self: center;
+      margin-top: 200px;
+    }
+
+    .line2 {
+      background-color: rgb(126, 34, 206);
+      width: 445px;
+      height: 2;
+    }
+
+    .card {
+      height: 300px;
+    }
+
+    .frontend {
+      width: 95px;
+      height: 95px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+    }
+
+    .heigth {
+      height: 35px;
+    }
+
+    .Tool {
+      height: 300px;
+    }
+
+    .contact {
+      width: 1150px;
+      height: 500px;
+      justify-self: center;
+    }
+
+    .contact1 {
+      display: flex;
+    }
+
+    .diagram {
+      width: 500px;
+    }
+
+    .form {
+      height: 400px;
+      width: 500px;
+    }
+
+.ani{
+  animation: fadeIn 2s ease-in-out;
+  
+}
+    
+.typing::after {
+      content: "|";
+      animation: blink 1s infinite;
+      margin-left: 5px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+
+ #starfield {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background: #000000;
+      display: block;
+    }
+
+.homeimg{
+  width: 500px;
+
+}
+
+
+ #toast {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      min-width: 250px;
+      max-width: 350px;
+      background-color: rgb(12, 21, 31); /* Tailwind green-400 */
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(89, 25, 119, 0.5), 0 4px 6px -2px rgba(72, 16, 87, 0.3);
+      display: none;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 600;
+      z-index: 9999;
+    }
+    #toast.show {
+      display: flex;
+      animation: slideIn 0.3s ease forwards;
+    }
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+  </style>
+</head>
+
+<!-- Page Animation (using Animate.css and a simple fade-in) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+
+<body class="ani text-white cursor: none;" id="home">
+   <canvas id="starfield"></canvas>
+  <div class="Cursor-Main z-[9999]">
+    <div id="cursor" class="glow-circle z-[9999]">
+      <div id="cursorView" class="z-[9999]"></div>
+    </div>
+    <div id="cursorDot" class="z-[9999]"></div>
+  </div>
+  <header class="sticky z-50 top-0 backdrop-blur-sm flex items-center justify-between px-6 py-4 max-w-[1200px] mx-auto">
+    <a class=" w-fit font-pacifico text-2xl text-purple-700 " href="#">Portfolio.</a>
+    <nav class="hidden md:flex space-x-8 text-white text-sm font-semibold tracking-wide ">
+      <a class="hover:text-purple-700 transition-colors" href="#home">HOME</a>
+
+      <a class="hover:text-purple-700 transition-colors" href="#about">ABOUT</a>
+
+      <a class="hover:text-purple-700 transition-colors" href="#skill">SKILLS</a>
+      
+      <a class="hover:text-purple-700 transition-colors" href="#contact">CONTACT</a>
+    </nav>
+    <a class="hidden md:flex items-center gap-2 border border-purple-600 rounded-md px-4 py-2 text-white hover:text-purple-600 transition-colors cursor-pointer"
+      href="yashCV.pdf.pdf" download="yashCV">Resume <i class="fas fa-download"></i></a>
+  </header>
+
+
+
+  <main  class="main mx-auto px-6 flex flex-col md:flex-row items-center justify-between  md:mt-5 gap-10 md:gap-0">
+
+
+    <section class="flex flex-col mb-20 ml-10 " >
+      <p class="text-white text-3xl font-normal ">Hi! my name is,</p>
+      <h1 class="text-purple-700 text-9xl font-extrabold pt-5 text-[6rem] leading-[1] select-none">
+        Yash.
+      </h1>
+      <p class="text-white font-normal text-3xl pt-5">
+        I'm a Fullstack Web Developer.
+        <br />
+        <span class="mt-3">I create
+          <span class="font-extrabold text-purple-700">Exciting Stuff</span> on
+          the Internet.</span>
+      </p>
+      <div class="flex space-x-6 mt-6 text-white text-3xl">
+        <a aria-label="GitHub" class="hover:text-purple-700 transition-colors" href="https://github.com/dashboard"><i
+            class="fab fa-github"></i></a>
+        <a aria-label="LinkedIn" class="hover:text-purple-700 transition-colors" href="https://www.linkedin.com/in/yash-tayde-b87aa0361/?originalSubdomain=in"><i
+            class="fab fa-linkedin-in"></i></a>
+
+        <a aria-label="Instagram" class="hover:text-purple-700 transition-colors" href="https://www.instagram.com/yashh1817/"><i
+            class="fab fa-instagram"></i></a>
+        <a aria-label="Google" class="hover:text-purple-700 transition-colors" href="https://mail.google.com/mail/?view=cm&fs=1&to=yashtayde1810@gmail.com"><i
+            class="fab fa-google"></i></a>
+      </div>
+
+
+
+
+    </section>
+
+    <section class="homeimg relative  h-96 md:w-[20rem] md:h-[20rem] flex justify-center items-center">
+       
+
+     <img  class=" mr-28 mb-20 w-fit" src="img/home.svg" alt="">
+
+      
+    </section>
+
+  </main>
+
+
+
+  <!--About section -->
+
+
+
+  <section class="about" id="about">
+
+    <div class="flex flex-row gap-2 items-center">
+      <span class="text-purple-700 text-2xl font-bold "> &lt; </span>
+      <span class="text-white text-2xl font-bold w-40"> About Me</span>
+      <span class="text-purple-700 text-2xl font-bold "> &gt; </span>
+      <div class="line items-center "> </div>
+    </div>
+
+
+    <div class="flex center flex-col w-full h-full lg:flex-row gap-8 py-10">
+      <img class=""  src="/img/homeimg/home2.png" 
+        class="Fade_Up rounded-full lg:mx-14 scale-x-[-1]"
+        style="translate: none; rotate: none; scale: none; transform: rotate(180deg) scale(1, -1); opacity: 1;">
+      <div
+        class="w-full flex-col border-purple-700 gap-4 border-primary flex items-start justify-center lg:border-l lg:pl-10 lg:w-[60%] md:w-[80%] py-8"
+        style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+        <h2 class="Fade Up font-bold text-[1.5em]"
+          style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">Hey there!
+          👋🏻</h2>
+        <p class="Fade_Up text-justify"
+          style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">I'm Yash, a
+          full stack web developer with a strong passion for crafting digital realms that captivate and inspire.</p>
+        <p class="Fade_Up text-justify"
+          style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">I specialize
+          in creating dynamic and interactive UI/UX experience. I stay up to date with the latest tools and techniques
+          and worked on a wide range of projects, from personal websites to large-scale applications, sharpening my
+          problem solving skills and fostering creativity.</p>
+        <p class="Fade_Up text-justify"
+          style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">If you're
+          seeking a dedicated and passionate web developer, I'm eager to collaborate with you. Let's bring your ideas to
+          life!</p>
+      </div>
+
+
+    </div>
+
+    <div class="flex flex-row items-end justify-end gap-2">
+      <span class="text-[1.5em] text-2xl text-purple-700 font-bold"> &lt; /</span>
+      <p class="text-[1.4em] text-2xl font-bold ">About Me</p><span
+        class="text-[1.5em] text-2xl text-purple-700 font-bold">&gt;</span>
+    </div>
+
+
+  </section>
+
+
+
+  <!--Teck stack-->
+  <section class="techstack " id="skill">
+
+
+    <div class="flex center items-center gap-2">
+      <div class="line2"></div>
+      <span class="text-3xl text-purple-700 font-bold">&lt;</span>
+      <p class="text-3xl font-bold">Tech Stack</p><span class="text-3xl text-purple-700 font-bold">/&gt;</span>
+      <div class="line2"></div>
+    </div>
+
+
+    <!--Front End & Back End-->
+
+    <div class="card flex flex-col justify-center items-center gap-5 lg:flex-row ">
+
+      <!--Front End-->
+
+      <div class="flex flex-col w-full h-full gap-4 py-4 p-4 ">
+
+        <div class="flex items-center justify-center ">
+          <h2 class="text-2xl font-bold text-center">
+            <span class="text-2xl font-bold text-white text-center">Front End </span><span class="text-purple-700">(
+              )</span>
+          </h2>
+        </div>
+
+
+        <div class="flex flex-wrap items-center justify-center gap-4">
+
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" class="frontend rounded-2xl bg-stone-900">
+
+            <img class="" src="img/frontend/html.svg" alt="HTML" height="35" width="35">
+
+            <span>HTML</span>
+
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" class="frontend rounded-2xl bg-stone-900">
+
+              <img class="" src="img/frontend/css.svg" alt="css" height="35" width="35">
+              <div>CSS</div>
+
+            </a>
+
+            <a href="https://tailwindcss.com/" class="frontend rounded-2xl gap-2 bg-stone-900">
+              <div class="flex flex-col gap-5 items-center justify-center ">
+                <img class="pt-2" src="img/frontend/tailwindcss.svg" alt="HTML" height="35" width="35">
+
+                <span class="text-[0.9em]">Tailwindcss</span>
+              </div>
+            </a>
+
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" class="frontend rounded-2xl bg-stone-900">
+
+              <img src="img/frontend/javascript.svg" alt="" height="35" width="35">
+              <div>javascript</div>
+
+            </a>
+
+
+            <a href="https://react.dev/" class="frontend rounded-2xl bg-stone-900">
+
+              <img class="" src="img/frontend/react.svg" alt="HTML" height="35" width="35">
+              <div>react</div>
+
+            </a>
+
+
+            <a href="" class="frontend rounded-2xl bg-stone-900">
+
+              <img class="https://redux.js.org/" src="img/frontend/redux.svg" alt="HTML" height="35" width="35">
+              <div>redux</div>
+
+            </a>
+
+
+
+            <a href="https://nextjs.org/" class="frontend rounded-2xl bg-stone-900">
+
+              <img class="" src="img/frontend/next.svg" alt="HTML" height="35" width="35">
+              <div>Next.js</div>
+
+            </a>
+
+
+
+
+
+        </div>
+
+
+      </div>
+
+
+      <!--Back End-->
+
+      <div class="flex flex-col w-full h-full gap-4 py-4 p-4">
+
+        <div class="flex items-center justify-center">
+          <h2 class="text-2xl font-bold text-center">
+            <span class="text-2xl font-bold text-white text-center">Back End</span> <span class="text-purple-700">(
+              )</span>
+          </h2>
+        </div>
+
+
+        <div class="flex flex-wrap items-center justify-center gap-4">
+
+
+          <a href="https://nodejs.org/en" class="frontend rounded-2xl bg-stone-900">
+
+            <img class="" src="img/backend/node.svg" alt="HTML" height="35" width="35">
+            <div>Node.js</div>
+
+          </a>
+
+
+          <a href="https://expressjs.com/" class="frontend rounded-2xl bg-stone-900">
+
+            <img class="" src="img/backend/express.svg" alt="HTML" height="35" width="35">
+            <div>Express.js</div>
+
+          </a>
+
+
+          <a href="https://www.mongodb.com/" class="frontend rounded-2xl bg-stone-900">
+
+            <img class="" src="img/backend/mongo.svg" alt="HTML" height="35" width="35">
+            <div>MongoDb</div>
+
+          </a>
+
+
+          <a href="https://www.mysql.com/" class="frontend rounded-2xl bg-stone-900">
+
+            <img class="" src="img/backend/mysql.svg" alt="HTML" height="35" width="35">
+            <div>MySql</div>
+
+          </a>
+
+
+          <a href="https://developer.mozilla.org/en-US/docs/Glossary/REST" class="frontend rounded-2xl bg-stone-900">
+
+            <img class="" src="img/backend/restapi.svg" alt="HTML" height="35" width="35">
+            <div>Rest API</div>
+
+          </a>
+
+
+          <a href="https://authjs.dev/" class="frontend rounded-2xl bg-stone-900">
+
+            <img class="" src="img/backend/auth.svg" alt="HTML" height="35" width="35">
+            <div>Auth.js</div>
+
+          </a>
+
+        </div>
+      </div>
+
+
+
+  </section>
+
+
+
+
+  <!--Tech & Tools-->
+
+
+
+
+  <section class="Tool">
+
+
+    <div class="flex flex-col w-full h-full gap-4 py-4 p-4">
+
+      <div class="flex items-center justify-center">
+        <h2 class="text-2xl font-bold text-center">
+          <span class="text-2xl font-bold text-white text-center">Tech & Tools</span><span class="text-purple-700"> (
+            )</span>
+        </h2>
+      </div>
+
+
+      <div class="flex flex-wrap items-center justify-center gap-4">
+
+        <a href="https://www.npmjs.com/" class="frontend rounded-2xl bg-stone-900">
+
+          <img class="" src="img/tools/npm.svg" alt="HTML" height="35" width="35">
+          <div>NPM</div>
+
+        </a>
+
+        <a href="https://github.com/dashboard" class="frontend rounded-2xl bg-stone-900">
+
+          <img class="" src="img/tools/github.svg" alt="HTML" height="35" width="35">
+          <div>GitHub</div>
+
+        </a>
+
+        <a href="https://vercel.com/" class="frontend rounded-2xl bg-stone-900">
+
+          <img class="" src="img/tools/versal.svg" alt="HTML" height="35" width="35">
+          <div>Vercel</div>
+
+        </a>
+
+        <a href="https://code.visualstudio.com/" class="frontend rounded-2xl bg-stone-900">
+
+          <img class="" src="img/tools/vscode.svg" alt="HTML" height="35" width="35">
+          <div>Vs code</div>
+
+        </a>
+
+        <a href="https://www.figma.com/files/team/1514256809241477392/recents-and-sharing?fuid=1507637053991231487"
+          class="frontend rounded-2xl bg-stone-900">
+
+          <img class="" src="img/tools/figma.svg" alt="HTML" height="35" width="35">
+          <div>Figma</div>
+
+        </a>
+
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!--Contact me page-->
+
+
+  <section class="contact" id="contact">
+
+    <div class="flex center items-center justify-center gap-2">
+      <div class="line2"></div>
+      <span class="text-3xl text-purple-700 font-bold">&lt;</span>
+      <p class="text-3xl font-bold">Contact</p><span class="text-3xl text-purple-700 font-bold">/&gt;</span>
+      <div class="line2"></div>
+    </div>
+
+    <div>
+      <h2 class="text-4xl font-bold text-center mt-8 text-purple-700">Let's collaborate!</h2>
+      <div class="font-light text-xl text-center mt-3">
+        Contact me to discuss your web development needs </br> or just to say hello. 😉</div>
+
+    </div>
+    </div>
+
+
+    <div class="contact1 flex_center flex-col w-full h-full gap-4 lg:flex-row lg:gap-10 lag:px-20 pt-8">
+
+
+      <div class="diagram flex_center flex-row relative">
+        <div
+          class="aspect-square rounded-full border-2 border-contactSocialColor border-dashed lg:max-w-[450px] lg:scale-1 max-w-[350px] mb-8 md:mb-0 md:mt-7 scale-[0.9] w-full"
+          id="socialCircle" style="translate: none; rotate: none; scale: none; transform: scale(0.9, 0.9); opacity: 1;">
+          <a href="https://www.facebook.com/share/1ZSFjtspkm/"
+            class="flex_center aspect-square bg-black rounded-full absolute lg:p-4 lg:w-16 outline-2 outline-contactSocialColor outline-dashed p-2 socialIcon w-12"
+            target="_blank" rel="noreferrer" title="Facebook" aria-label="Facebook" style="left: 417px; top: 193px;">
+
+
+
+
+            <svg viewBox="0 0 16 16" width="30" fill="currentColor" height="30" stroke="currentColor" stroke-width="0"
+              xmlns="http://www.w3.org/2000/svg" style="color:var(--heroSocialColor)">
+
+              <path
+                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z">
+              </path>
+            </svg>
+          </a>
+
+          <a href="https://www.instagram.com/yashh1817/"
+            class="flex_center bg-black aspect-square rounded-full absolute bg-background lg:p-4 lg:w-16 outline-2 outline-contactSocialColor outline-dashed p-2 socialIcon w-12"
+            target="_blank" rel="noreferrer" title="Instagram" aria-label="Instagram"
+            style="left: 351.392px; top: 34.6081px;"><svg viewBox="0 0 16 16" width="30" fill="currentColor" height="30"
+              stroke="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg"
+              style="color:var(--heroSocialColor)">
+              <path
+                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
+              </path>
+            </svg> </a><a href="https://mail.google.com/mail/?view=cm&fs=1&to=yashtayde1810@gmail.com"
+            class="flex_center aspect-square bg-black rounded-full absolute bg-background lg:p-4 lg:w-16 outline-2 outline-contactSocialColor outline-dashed p-2 socialIcon w-12"
+            target="_blank" rel="noreferrer" title="Gmail" aria-label="Gmail" style="left: 193px; top: -31px;"><svg
+              viewBox="0 0 24 24" width="30" fill="currentColor" height="30" stroke="currentColor" stroke-width="0"
+              xmlns="http://www.w3.org/2000/svg" style="color:var(--heroSocialColor)" role="img">
+              <title></title>
+              <path
+                d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z">
+              </path>
+            </svg> </a><a href="https://x.com/Yashtayde1817"
+            class="flex_center aspect-square bg-black rounded-full absolute bg-background lg:p-4 lg:w-16 outline-2 outline-contactSocialColor outline-dashed p-2 socialIcon w-12"
+            target="_blank" rel="noreferrer" title="Twitter" aria-label="Twitter"
+            style="left: 34.6081px; top: 34.6081px;"><svg viewBox="0 0 24 24" width="30" fill="currentColor" height="30"
+              stroke="currentColor" stroke-width="0" xmlns="" style="color:var(--heroSocialColor)">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+            </svg> </a><a href="https://discord.gg/the_flash6611"
+            class="flex_center bg-black aspect-square rounded-full absolute bg-background lg:p-4 lg:w-16 outline-2 outline-contactSocialColor outline-dashed p-2 socialIcon w-12"
+            target="_blank" rel="noreferrer" title="Discord" aria-label="Discord" style="left: -31px; top: 193px;"><svg
+              viewBox="0 0 30 22" width="30px" fill="currentColor" height="22px" stroke="currentColor"
+              style="color:var(--heroSocialColor)" version="1.1">
+              <g id="surface1">
+                <path
+                  d="M 24.957031 1.863281 C 28.207031 6.65625 29.8125 12.058594 29.210938 18.277344 C 29.210938 18.304688 29.195312 18.328125 29.175781 18.34375 C 26.714844 20.15625 24.332031 21.257812 21.980469 21.984375 C 21.941406 21.996094 21.902344 21.984375 21.878906 21.949219 C 21.335938 21.191406 20.84375 20.394531 20.410156 19.554688 C 20.386719 19.507812 20.410156 19.445312 20.460938 19.425781 C 21.242188 19.132812 21.988281 18.777344 22.703125 18.355469 C 22.761719 18.324219 22.765625 18.242188 22.710938 18.203125 C 22.5625 18.089844 22.410156 17.972656 22.265625 17.851562 C 22.238281 17.828125 22.203125 17.824219 22.171875 17.839844 C 17.519531 19.996094 12.421875 19.996094 7.714844 17.839844 C 7.683594 17.828125 7.648438 17.832031 7.621094 17.851562 C 7.480469 17.972656 7.328125 18.089844 7.175781 18.203125 C 7.125 18.242188 7.128906 18.324219 7.1875 18.355469 C 7.902344 18.769531 8.648438 19.132812 9.429688 19.429688 C 9.480469 19.449219 9.503906 19.507812 9.480469 19.554688 C 9.058594 20.394531 8.5625 21.195312 8.011719 21.953125 C 7.988281 21.984375 7.945312 21.996094 7.910156 21.984375 C 5.570312 21.257812 3.1875 20.15625 0.726562 18.34375 C 0.707031 18.328125 0.691406 18.304688 0.691406 18.277344 C 0.1875 12.898438 1.210938 7.449219 4.9375 1.863281 C 4.949219 1.847656 4.960938 1.835938 4.976562 1.828125 C 6.8125 0.984375 8.777344 0.363281 10.832031 0.0078125 C 10.871094 0.00390625 10.90625 0.0195312 10.925781 0.0546875 C 11.179688 0.503906 11.46875 1.082031 11.667969 1.554688 C 13.832031 1.222656 16.03125 1.222656 18.242188 1.554688 C 18.4375 1.09375 18.71875 0.503906 18.972656 0.0546875 C 18.992188 0.0195312 19.027344 0.00390625 19.066406 0.0078125 C 21.121094 0.363281 23.085938 0.984375 24.921875 1.828125 C 24.9375 1.835938 24.949219 1.847656 24.957031 1.863281 Z M 12.769531 12.09375 C 12.789062 10.503906 11.632812 9.1875 10.183594 9.1875 C 8.742188 9.1875 7.597656 10.492188 7.597656 12.09375 C 7.597656 13.695312 8.765625 15 10.183594 15 C 11.621094 15 12.769531 13.695312 12.769531 12.09375 Z M 22.324219 12.09375 C 22.347656 10.503906 21.191406 9.1875 19.742188 9.1875 C 18.300781 9.1875 17.15625 10.492188 17.15625 12.09375 C 17.15625 13.695312 18.324219 15 19.742188 15 C 21.191406 15 22.324219 13.695312 22.324219 12.09375 Z M 22.324219 12.09375 ">
+                </path>
+              </g>
+            </svg>
+
+          </a>
+
+        </div>
+        <img alt="ContactArt" decoding="async" height="500" loading="lazy" src="/img/contact/contact.svg" width="300"
+          class="Fade_Up absolute ml-[70px] mb-6 bottom-10 md:bottom-2  "
+          style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+      </div>
+
+      <!--form-->
+
+      <div class="form flex flex-col bg-stone-900 mt-10 ml-12 overflow-hidden rounded-xl">
+
+        <form id="myform"
+          class=" flex_center flex-col w-full Fade_Up bg-LinkBtnGradient  lg:max-w-[650px] outline outline-1 outline-white/20 px-4 py-2 rounded-md"
+          style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+
+          <label
+            class="w-full flex-col h-fit flex items-start justify-center noCustomCursor px-1 py-2" for="name">Name
+            
+            <input
+              autocomplete="name"
+              class="w-full bg-black border-none mt-1 outline-none p-2 rounded-md text-foreground" id="name"
+              name="name" placeholder="Enter your Name" required="" type="text"></label>
+              
+              <label
+            class="w-full flex-col h-fit flex items-start justify-center noCustomCursor px-1 py-2"
+            for="email">Email
+            
+            <input autocomplete="email"
+              class="w-full bg-black border-none mt-1 outline-none p-2 rounded-md text-foreground" id="email"
+              name="email" placeholder="example@gmail.com" required="" type="email"></label>
+              
+              <label
+            class="w-full flex-col h-fit flex items-start justify-center noCustomCursor px-1 py-2"
+            for="message">Message
+            
+            <textarea
+              class="w-full bg-black border-none mt-1 outline-none p-2 rounded-md text-foreground resize-none"
+              id="message" name="message" placeholder="Enter your Message" rows="5"></textarea>
+            
+            </label>
+
+          <div class="w-full gap-4 flex items-center justify-start">
+            
+            <button
+              class="flex center bg-black border-none gap-4 w-40 h-8 items-center justify-center lg:px-20 mx-2 my-1 outline outline-1 outline-white/20 px-6 py-2 rounded-md text-foreground"
+              type="submit">
+              <span>Submit</span>
+             
+            </button>
+            </div>
+        </form>
+
+<div id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <i class="fas fa-check-circle text-white text-xl"></i>
+    <span>Thanks for your message! <br>
+
+I’ll get back to you shortly. </span>
+  </div>
+
+
+ 
+
+
+      </div>
+
+
+
+
+    </div>
+
+  </section>
+
+
+
+<!--Footer-->
+
+
+
+<footer class="min-h-[400px] mt-96 ">
+
+  
+<div class="text-center items-center justify-center flex flex-col gap-4 pt-16">
+
+  <h1 class="text-9xl text-purple-700 text"> Y </h1>
+  <span class="text-2xl mb-4"> Yash | Portfolio</span>
+
+  <div class="flex flex-row items-center justify-center gap-20 ">
+    
+    <a href="https://www.facebook.com/share/1ZSFjtspkm/" class="text-2xl text-purple-700 font-bold">
+      <img src="/img/icons/facebook.svg" alt="Facebook" class="w-8 h-8">
+    </a>
+
+     <a href="https://x.com/Yashtayde1817" class="text-2xl text-purple-700 font-bold">
+      <img src="/img/icons/twitter.svg" alt="Facebook" class="w-8 h-8">
+    </a>
+
+     <a href="https://www.instagram.com/yashh1817/" class="text-2xl text-purple-700 font-bold">
+      <img src="/img/icons/instagram.svg" alt="Facebook" class="w-8 h-8">
+    </a>
+
+     <a href="#" class="text-2xl text-purple-700 font-bold">
+      <img src="/img/icons/linkedin.svg" alt="Facebook" class="w-8 h-8">
+    </a>
+
+     <a href="https://discord.gg/the_flash6611" class="text-2xl text-purple-700 font-bold">
+      <img src="/img/icons/Discord.svg" alt="Facebook" class="w-8 h-8">
+    </a>
+
+     <a href="https://www.instagram.com/yashh1817/" class="text-2xl text-purple-700 font-bold">
+      <img src="/img/icons/gitHub.svg" alt="Facebook" class="w-8 h-8">
+    </a>
+
+
+  </div>
+
+<div class="pt-5"> © Copyright 2025 Yash Tayde</div>
+
+
+</div>
+
+
+</footer>
+
+
+
+
+ <script>
+    const form = document.getElementById('myform');
+    const toast = document.getElementById('toast');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Here you can add your form submission logic (e.g., AJAX)
+
+      // Show toast
+      toast.classList.add('show');
+
+      // Hide toast after 3 seconds
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+
+      // Optionally reset the form
+      form.reset();
+    });
+  </script>
+
+
+
+
+
+
+ <script>
+    (() => {
+      const canvas = document.getElementById("starfield");
+      const ctx = canvas.getContext("2d");
+      let width, height, centerX, centerY;
+      let stars = [];
+      const starCount = 2800; // Increased stars for even denser galaxy
+      const maxStarSize = 1; // Half the previous max size (was 3)
+      const baseSpeed = 0; // 2x faster than previous 0.12
+      const rotationSpeed = 0.001; // 2x faster rotation for orbiting effect
+
+      function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        centerX = width / 2;
+        centerY = height / 2;
+        canvas.width = width;
+        canvas.height = height;
+      }
+
+      class Star {
+        constructor() {
+          this.reset();
+        }
+        reset() {
+          // Position stars randomly in 3D space around center
+          this.angle = Math.random() * 2 * Math.PI; // angle for orbiting
+          this.radius = Math.random() * (width / 2); // distance from center
+          this.z = Math.random() * width;
+          this.size = Math.random() * maxStarSize + 0.25; // half size offset
+          this.speed = baseSpeed + Math.random() * baseSpeed * 0.5;
+        }
+        update() {
+          this.z -= this.speed;
+          if (this.z <= 1) {
+            this.reset();
+            this.z = width;
+          }
+          // Rotate star around center for galaxy effect
+          this.angle += rotationSpeed * (1 - this.z / width) * 5; // faster rotation closer stars
+        }
+        draw() {
+          // Calculate 3D position with rotation
+          const x3d = this.radius * Math.cos(this.angle);
+          const y3d = this.radius * Math.sin(this.angle);
+
+          // Project 3D position to 2D screen position
+          const sx = centerX + (x3d / this.z) * centerX;
+          const sy = centerY + (y3d / this.z) * centerY;
+          const radius = (1 - this.z / width) * this.size;
+
+          if (sx < 0 || sx > width || sy < 0 || sy > height) return;
+
+          const alpha = 1 - this.z / width;
+          ctx.beginPath();
+          ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+          ctx.arc(sx, sy, radius, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      function init() {
+        stars = [];
+        for (let i = 0; i < starCount; i++) {
+          stars.push(new Star());
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        for (const star of stars) {
+          star.update();
+          star.draw();
+        }
+        requestAnimationFrame(animate);
+      }
+
+      window.addEventListener("resize", () => {
+        resize();
+        init();
+      });
+
+      resize();
+      init();
+      animate();
+    })();
+  </script>
+
+
+
+
+  <!--Cursor script-->
+
+
+  <script>
+    document.addEventListener("mousemove", (e) => {
+      const cursor = document.getElementById("cursor");
+      const cursorDot = document.getElementById("cursorDot");
+
+      if (cursor && cursorDot) {
+        const cursorRect = cursor.getBoundingClientRect();
+        const cursorWidth = cursorRect.width;
+        const cursorHeight = cursorRect.height;
+
+        cursor.style.transform = `translate(${e.clientX - cursorWidth / 2}px, ${e.clientY - cursorHeight / 2}px)`;
+        cursorDot.style.transform = `translate(${e.clientX - 5}px, ${e.clientY - 5}px)`;
+
+      }
+    });
+  </script>
+
+</body>
+
+</html>
